@@ -1,9 +1,9 @@
 FROM guilhem/jenkins-slave
 MAINTAINER Guilhem Lettron "guilhem@lettron.fr"
 
-RUN apt-get update && apt-get install -y python && apt-get clean
-RUN apt-get update && apt-get install -y curl && apt-get clean
+COPY install.sh /install.sh
+RUN sudo apt-get update
+RUN sudo apt-get install libjpeg-dev curl git-core build-essential \
+    python-pip make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev -y
 
-RUN curl https://bootstrap.pypa.io/get-pip.py | python
-
-RUN pip install virtualenv
+RUN /bin/bash /install.sh && rm /install.sh
