@@ -1,4 +1,4 @@
-docker-jenkins-slave-python
+docker-jenkins-slave-tox
 ===========================
 A Docker image for Python CI
 
